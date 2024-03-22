@@ -1,0 +1,374 @@
+/* 全局属性 */
+.markdown-body {
+    max-width: 860px !important;
+    font-size: 1rem !important;
+    color: black !important;
+    padding: 5px 15px !important;
+    line-height: 1.6 !important;
+    word-spacing: 0px !important;
+    letter-spacing: 0px !important;
+    word-break: break-word !important;
+    word-wrap: break-word !important;
+    text-align: left !important;
+    font-family: 'Optima-Regular', 'Optima', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', 'PingFangSC-light', 'PingFangTC-light', 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/*段落*/
+.markdown-body+p,
+.markdown-body blockquote p {
+    font-size: 1rem !important;
+    padding-top: .5rem !important;
+    padding-bottom: .5rem !important;
+    margin: 0 !important;
+    line-height: 1.5rem !important;
+    color: black !important;
+}
+
+.markdown-body div[mdtype=toc] {
+    font-size: 1rem !important;
+}
+
+/*标题*/
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin: 1.2em 0 1em !important;
+    padding: 0px !important;
+    font-weight: bold !important;
+    color: black !important;
+}
+
+.markdown-body h1 {
+    font-size: 1.5rem !important;
+}
+
+.markdown-body h2 {
+    font-size: 1.3rem !important;
+    border-bottom: 2px solid rgb(239, 112, 96) !important;
+}
+
+.markdown-body h2 span {
+    display: inline-block !important;
+    font-weight: bold !important;
+    background: rgb(239, 112, 96) !important;
+    color: #ffffff !important;
+    padding: 3px 10px 1px !important;
+    border-top-right-radius: 3px !important;
+    border-top-left-radius: 3px !important;
+    margin-right: 3px !important;
+}
+
+.markdown-body h2:after {
+    display: inline-block !important;
+    content: "" !important;
+    vertical-align: bottom !important;
+    border-bottom: 1.25rem solid #efebe9 !important;
+    border-right: 1.25rem solid transparent !important;
+}
+
+.markdown-body h3 {
+    font-size: 1.3rem !important;
+}
+
+.markdown-body h4 {
+    font-size: 1.2rem !important;
+}
+
+.markdown-body h5 {
+    font-size: 1.1rem !important;
+}
+
+.markdown-body h6 {
+    font-size: 1rem !important;
+}
+
+/*列表*/
+.markdown-body ul,
+.markdown-body ol {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    padding-left: 25px !important;
+    color: black !important;
+}
+
+.markdown-body ul {
+    list-style-type: disc !important;
+}
+
+.markdown-body ul ul {
+    list-style-type: square !important;
+}
+
+.markdown-body ol {
+    list-style-type: decimal !important;
+}
+
+.markdown-body li section {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    line-height: 1.7rem !important;
+    text-align: left !important;
+    color: rgb(1, 1, 1) !important;
+    /* 只要是纯黑色微信编辑器就会把color这个属性吞掉。。。*/
+    font-weight: 500 !important;
+}
+
+/*引用*/
+.markdown-body blockquote {
+    display: block !important;
+    font-size: .9em !important;
+    overflow: auto !important;
+    border-left: 3px solid rgb(239, 112, 96) !important;
+    color: #6a737d !important;
+    padding: 10px 10px 10px 20px !important;
+    margin-bottom: 20px !important;
+    margin-top: 20px !important;
+    background: #fff9f9 !important;
+}
+
+/*链接*/
+.markdown-body a {
+    text-decoration: none !important;
+    word-wrap: break-word !important;
+    font-weight: bold !important;
+    border-bottom: 1px solid #1e6bb8 !important;
+    color: rgb(239, 112, 96) !important;
+    border-bottom: 1px solid rgb(239, 112, 96) !important;
+}
+
+/*行内代码*/
+.markdown-body p code,
+.markdown-body li code {
+    font-size: .9rem !important;
+    word-wrap: break-word !important;
+    padding: 2px 4px !important;
+    border-radius: 4px !important;
+    margin: 0 2px !important;
+    color: rgb(239, 112, 96) !important;
+    background-color: rgba(27, 31, 35, .05) !important;
+    font-family: Operator Mono, Consolas, Monaco, Menlo, monospace !important;
+    word-break: break-all !important;
+}
+
+/*图片*/
+.markdown-body img {
+    display: block !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+}
+
+.markdown-body span img {
+    display: inline-block !important;
+    border-right: 0px !important;
+    border-left: 0px !important;
+}
+
+/*表格*/
+.markdown-body table {
+    display: table !important;
+    text-align: left !important;
+}
+
+.markdown-body tbody {
+    border: 0 !important;
+}
+
+.markdown-body table tr {
+    border: 0 !important;
+    border-top: 1px solid #ccc !important;
+    background-color: white !important;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8 !important;
+}
+
+.markdown-body table tr th,
+.markdown-body table tr td {
+    font-size: 1rem !important;
+    border: 1px solid #ccc !important;
+    padding: 5px 10px !important;
+    text-align: left !important;
+}
+
+.markdown-body table tr th {
+    font-weight: bold !important;
+    background-color: #f0f0f0 !important;
+}
+
+/* 行内代码 */
+.markdown-body span code,
+.markdown-body li code {
+    color: rgb(239, 112, 96) !important;
+}
+
+/* 脚注上标 */
+.markdown-body .md-footnote {
+    font-weight: bold !important;
+    color: rgb(239, 112, 96) !important;
+}
+
+.markdown-body .md-footnote>.md-text:before {
+    content: '['
+}
+
+.markdown-body .md-footnote>.md-text:after {
+    content: ']'
+}
+
+/* 脚注 */
+.markdown-body .md-def-name {
+    padding-right: 1.8ch !important;
+}
+
+.markdown-body .md-def-name:before {
+    content: '[' !important;
+    color: #000 !important;
+}
+
+.markdown-body .md-def-name:after {
+    color: #000 !important;
+}
+
+/* 代码块主题 */
+.md-fences:before {
+    content: ' ' !important;
+    display: block !important;
+    width: 100% !important;
+    background-size: 40px !important;
+    background-repeat: no-repeat !important;
+    background-color: #282c34 !important;
+    margin-bottom: -7px !important;
+    border-radius: 5px !important;
+    background-position: 10px 10px !important;
+}
+
+/* CodeMirror 相关内容 */
+.CodeMirror-wrap .CodeMirror-scroll {
+    overflow-x: auto !important;
+}
+
+.cm-s-inner.CodeMirror {
+    padding: .5rem !important;
+    background-color: #292d3e !important;
+    color: #a6accd !important;
+    font-family: Consolas !important;
+    border-radius: 4px !important;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #c792ea !important;
+}
+
+.cm-s-inner .cm-operator {
+    color: #89ddff !important;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #eeffff !important;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+    color: #f07178 !important;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #ffcb6b !important;
+}
+
+.cm-s-inner .cm-atom {
+    color: #f78c6c !important;
+}
+
+.cm-s-inner .cm-number {
+    color: #ff5370 !important;
+}
+
+.cm-s-inner .cm-def {
+    color: #82aaff !important;
+}
+
+.cm-s-inner .cm-string {
+    color: #c3e88d !important;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f07178 !important;
+}
+
+.cm-s-inner .cm-comment {
+    color: #676e95 !important;
+}
+
+.cm-s-inner .cm-variable {
+    color: #f07178 !important;
+}
+
+.cm-s-inner .cm-tag {
+    color: #ff5370 !important;
+}
+
+.cm-s-inner .cm-meta {
+    color: #ffcb6b !important;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #c792ea !important;
+}
+
+.cm-s-inner .cm-property {
+    color: #c792ea !important;
+}
+
+.cm-s-inner .cm-qualifier {
+    color: #decb6b !important;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+    color: #decb6b !important;
+}
+
+.cm-s-inner .cm-error {
+    color: rgba(255, 255, 255, 1) !important;
+    background-color: #ff5370 !important;
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+    text-decoration: underline !important;
+    color: white !important;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid rgb(239, 112, 96) !important;
+    z-index: 3 !important;
+}
+
+.cm-s-inner div.CodeMirror-selected {
+    background: rgba(167, 178, 189, 0.2) !important;
+}
+
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected {
+    background: rgba(167, 178, 189, 0.2) !important;
+}
+
+.cm-s-inner .CodeMirror-selected,
+.cm-s-inner .CodeMirror-selectedtext {
+    background-color: rgba(167, 178, 189, 0.0) !important;
+}
+
+.cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line>span::-moz-selection,
+.cm-s-inner .CodeMirror-line>span>span::-moz-selection {
+    background-color: rgba(167, 178, 189, 0.2) !important;
+}
+
+.cm-s-inner .CodeMirror-line::selection,
+.cm-s-inner .CodeMirror-line>span::selection,
+.cm-s-inner .CodeMirror-line>span>span::selection {
+    background-color: rgba(167, 178, 189, 0.2) !important;
+}

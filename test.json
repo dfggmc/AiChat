@@ -1,0 +1,8 @@
+{
+    "code": 200,
+    "data": {
+        "image": "没有图片",
+        "output": "```python\n# 导入必要的库\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# 创建一个 NumPy 数组\narray = np.array([1, 2, 3, 4, 5])\n\n# 使用 Pandas 创建一个 DataFrame\ndataframe = pd.DataFrame({\n    'Name': ['Alice', 'Bob', 'Carol'],\n    'Age': [20, 25, 30]\n})\n\n# 使用 Matplotlib 绘制一个折线图\nplt.plot([1, 2, 3], [4, 5, 6])\nplt.xlabel('X-axis')\nplt.ylabel('Y-axis')\nplt.title('Line Plot')\nplt.show()\n```",
+        "content": "写点代码吧"
+    }
+}

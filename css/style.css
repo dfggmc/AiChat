@@ -1,0 +1,115 @@
+* {
+    scroll-behavior: smooth;
+}
+
+.mdui-icon {
+    margin-right: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 16px;
+    margin: 1rem;
+    max-height: 92vh;
+    position: relative;
+}
+
+#output {
+    position: relative;
+    height: 100vh;
+    border-radius: 10px;
+    overflow: scroll;
+    min-width: 98%;
+    overflow-x: hidden;
+}
+
+#output .code-copy {
+    position: absolute;
+    right: 16px;
+}
+
+#progress-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: rgb(0, 0, 0, 0.8);
+}
+
+#progress-overlay #progress {
+    top: calc(50% - 33px);
+    display: block;
+    height: 66px;
+    width: 300px;
+    z-index: 99999;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .msg {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .mdui-card {
+        width: 100%;
+        /* 卡片宽度占满屏幕 */
+    }
+
+    .ai-msg,
+    .user-msg {
+        max-width: 100%;
+        /* 消息宽度占满屏幕 */
+        min-width: 100%;
+        left: auto;
+        /* 取消左浮动 */
+        margin-right: 0;
+        /* 取消右侧间距 */
+    }
+}
+
+/* 非移动端适配 */
+@media (min-width: 769px) {
+    .msg {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .ai-msg {
+        max-width: 50%;
+        min-width: 50%;
+    }
+
+    .user-msg {
+        left: 50%;
+        max-width: 50%;
+        min-width: 50%;
+        margin-right: 20px;
+    }
+}
+
+.msg {
+    border-radius: 10px !important;
+}
+
+footer {
+    z-index: 1;
+    margin-top: auto;
+    padding: 10px;
+}
+
+.hljs-ln-line.hljs-ln-code {
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+}
+
+#sendRequestErrorMessage {
+    background-color: #F44336;
+    color: #ffffff !important;
+    border-radius: 10px;
+    padding: 10px;
+}
