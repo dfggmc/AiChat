@@ -1,6 +1,3 @@
-const musicPlayer = new MusicPlayerSettings();
-musicPlayer.mian();
-
 /**
  * 主函数（入口函数）
  * @returns 
