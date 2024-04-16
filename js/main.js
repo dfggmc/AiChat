@@ -66,10 +66,10 @@ function main(input) {
      * API JSON 列表
      */
     const apiUrl = {
-        "https://api.lolimi.cn/API/AI/mfcat3.5.php": {
+        "https://api.lolimi.cn/API/AI/gemini.php": {
             "data": `msg=${encodeURIComponent(input)}`,
             "method": "GET",
-            "dataType": "TEXT"
+            "dataType": "JSON"
         },
         "https://api.lolimi.cn/API/AI/c.php": {
             "data": `[
@@ -80,11 +80,6 @@ function main(input) {
                     ]`,
             "method": "POST",
             "dataType": "TEXT"
-        },
-        "https://api.lolimi.cn/API/AI/gemini.php": {
-            "data": `msg=${encodeURIComponent(input)}`,
-            "method": "GET",
-            "dataType": "JSON"
         },
     };
     // 取出KEY
