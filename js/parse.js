@@ -69,6 +69,6 @@ function parse(data) {
     hljs.highlightAll()
     hljs.initLineNumbersOnLoad();
 
-    var outputElement = document.getElementById("output");
-    outputElement.scrollTop = outputElement.scrollHeight;
+    // 滚动到最底下
+    window.scrollTo(0, document.body.scrollHeight);
 }

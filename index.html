@@ -16,30 +16,59 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.8.0/styles/atom-one-light.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="mdui-shadow-5 container">
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar">
 
+    <!-- 顶部导航栏 -->
+    <div class="mdui-appbar mdui-appbar-fixed mdui-color-theme mdui-text-color-black-text">
+        <div class="mdui-toolbar">
+            <!-- 切换侧边栏状态 -->
+            <a id="toggleDrawer" class="mdui-btn mdui-btn-icon mdui-btn-raised mdui-ripple">
+                <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <span class="mdui-typo-title">
+                chat1
+            </span>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon mdui-btn-raised mdui-ripple" mdui-tooltip="{content: '当前Chat设置'}">
+                <i class="mdui-icon material-icons">settings</i>
+            </a>
+            <a onclick="window.location.reload()" mdui-tooltip="{content: '刷新页面'}"
+                class="mdui-btn mdui-btn-icon mdui-btn-raised mdui-ripple">
+                <i class="mdui-icon material-icons">refresh</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="mdui-drawer" id="chat-list">
+        <ul class="mdui-list">
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">playlist_add</i>
+                <div class="mdui-list-item-content">NEW Chat</div>
+            </li>
+
+            <li class="mdui-divider"></li>
+
+            <div class="list">
+                <li class="mdui-list-item mdui-list-item-active mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">chat</i>
+                    <div class="mdui-list-item-content">chat1</div>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <div id="container">
         <main id="output" class="markdown-body">
             <div>
                 <h1 class="mdui-text-center mdui-typo mdui-text-color-theme-accent">
-                    AI回答不代表本站观点，请勿发表及发送违规违法言论！
+                    <i class="mdui-icon material-icons">build</i> <a href="https://github.com/dfggmc/aichat"
+                        target="_blank" rel="noopener noreferrer">开原主仓库地址</a>
                     <br>
                     <i class="mdui-icon material-icons">copyright</i> 2024 <a href="https://studio.dfggmc.top/"
                         target="_blank" rel="noopener noreferrer">dfgg Studio</a>
                     <br>
-                    <i class="mdui-icon material-icons">build</i> <a href="https://github.com/dfggmc/aichat"
-                        target="_blank" rel="noopener noreferrer">开原主仓库地址</a>
+                    AI回答不代表本站观点，请勿发表及发送违规违法言论！
                 </h1>
-                <script src='https://gitee.com/dfggmc/aichat/widget_preview' async defer></script>
-                <div id="osc-gitee-widget-tag"></div>
-                <style>
-                    .osc_pro_color {color: #4183c4 !important;}
-                    .osc_panel_color {background-color: #ffffff !important;}
-                    .osc_background_color {background-color: #ffffff !important;}
-                    .osc_border_color {border-color: #e3e9ed !important;}
-                    .osc_desc_color {color: #666666 !important;}
-                    .osc_link_color * {color: #9b9b9b !important;}
-                </style>
             </div>
         </main>
 
@@ -64,7 +93,8 @@
 
                 <div class="mdui-float-right">
                     <button id="msg-send" onclick="main($('footer textarea').val().trim())"
-                        mdui-tooltip="{content: '发送'}" class="mdui-btn mdui-btn-dense mdui-btn-raised mdui-ripple mdui-color-theme">
+                        mdui-tooltip="{content: '发送'}"
+                        class="mdui-btn mdui-btn-dense mdui-btn-raised mdui-ripple mdui-color-theme">
                         <i class="mdui-icon material-icons">send</i>
                     </button>
                 </div>
@@ -75,7 +105,7 @@
     <div id="progress-overlay">
         <div class="mdui-dialog mdui-dialog-open" id="progress">
             <div class="mdui-p-x-2">
-                <p class="mdui-text-center">加载资源中，请耐心等待……</p>
+                <p class="mdui-text-center">加载资源中……</p>
                 <div class="mdui-progress">
                     <div class="mdui-progress-indeterminate"></div>
                 </div>
@@ -131,6 +161,7 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/marked/9.0.0/marked.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
     <script src="https://gcore.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
@@ -146,6 +177,7 @@
     <script src="/js/parse.js?v=0.0.2"></script>
     <script src="/js/colorPalette.js"></script>
     <script src="/js/main.js?v=0.2.2"></script>
+    <script src="/js/chatList.js"></script>
 </body>
 
 </html>

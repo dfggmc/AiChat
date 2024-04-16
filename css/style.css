@@ -1,28 +1,23 @@
+@font-face {
+    font-family: 'SourceHanSansHWSC-Bold';
+    src: url('/typeface/SourceHanSansHWSC-Bold.otf');
+}
+
 * {
     scroll-behavior: smooth;
+    font-family: 'SourceHanSansHWSC-Bold', "Microsoft YaHei", SimHei, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#output {
+    min-height: 79vh;
 }
 
 .mdui-icon {
     margin-right: 5px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    border-radius: 16px;
-    margin: 1rem;
-    max-height: 92vh;
-    position: relative;
-}
-
-#output {
-    position: relative;
-    height: 100vh;
-    border-radius: 10px;
-    overflow: scroll;
-    min-width: 98%;
-    overflow-x: hidden;
 }
 
 #output .code-copy {
@@ -75,6 +70,11 @@
 
 /* 非移动端适配 */
 @media (min-width: 769px) {
+
+    #output {
+        min-width: 97%;
+    }
+
     .msg {
         margin-top: 30px;
         margin-bottom: 30px;
@@ -97,10 +97,11 @@
     border-radius: 10px !important;
 }
 
-footer {
-    z-index: 1;
-    margin-top: auto;
-    padding: 10px;
+/* 在大屏幕上添加边框 */
+@media screen and (min-width: 1024px) {
+    #chat-list {
+        border-right: 1px dashed #000;
+    }
 }
 
 .hljs-ln-line.hljs-ln-code {
@@ -112,4 +113,16 @@ footer {
     color: #ffffff !important;
     border-radius: 10px;
     padding: 10px;
+}
+
+/* 让footer固定在页面底部 */
+footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 99%;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
 }

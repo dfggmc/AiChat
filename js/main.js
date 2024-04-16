@@ -4,6 +4,7 @@
  */
 function main(input) {
 
+    $('#input').val("");
     const footer = $('footer');
     const msgSendBtn = footer.find('#msg-send');
     const progressContainer = footer.find('.progress-container');
@@ -57,9 +58,9 @@ function main(input) {
         <div class="mdui-card-content mdui-typo markdown-content">${input}</div>
     </div>
     `)
-    var outputElement = document.getElementById("output");
-    outputElement.scrollTop = outputElement.scrollHeight;
 
+    // 滚动到最底下
+    window.scrollTo(0, document.body.scrollHeight);
 
     /**
      * API JSON 列表
