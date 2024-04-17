@@ -41,19 +41,14 @@
 
     <div class="mdui-drawer" id="chat-list">
         <ul class="mdui-list">
-            <li class="mdui-list-item mdui-ripple">
+            <li class="mdui-list-item mdui-ripple new">
                 <i class="mdui-list-item-icon mdui-icon material-icons">playlist_add</i>
                 <div class="mdui-list-item-content">NEW Chat</div>
             </li>
 
             <li class="mdui-divider"></li>
 
-            <div class="list">
-                <li class="mdui-list-item mdui-list-item-active mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">chat</i>
-                    <div class="mdui-list-item-content">chat1</div>
-                </li>
-            </div>
+            <div class="list"></div>
         </ul>
     </div>
 
@@ -161,7 +156,7 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/marked/9.0.0/marked.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/3.0.5/js.cookie.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
     <script src="https://gcore.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
@@ -178,6 +173,10 @@
     <script src="/js/colorPalette.js"></script>
     <script src="/js/main.js?v=0.2.2"></script>
     <script src="/js/chatList.js"></script>
+
+    <script>
+        mdui.mutation();
+    </script>
 </body>
 
 </html>
