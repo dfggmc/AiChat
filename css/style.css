@@ -1,11 +1,5 @@
-@font-face {
-    font-family: 'SourceHanSansHWSC-Bold';
-    src: url('/typeface/SourceHanSansHWSC-Bold.otf');
-}
-
 * {
     scroll-behavior: smooth;
-    font-family: 'SourceHanSansHWSC-Bold', "Microsoft YaHei", SimHei, sans-serif;
 }
 
 body {

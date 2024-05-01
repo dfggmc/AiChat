@@ -74,11 +74,11 @@
                 </div>
             </div>
             <div class="mdui-textfield">
-                <textarea id="input" class="mdui-textfield-input" placeholder="来说点什么吧...（回车换行 Shift + Enter = 发送）"
+                <textarea id="input" rows="4" class="mdui-textfield-input" placeholder="来说点什么吧...（回车换行 Shift + Enter = 发送）"
                     maxlength="4000"></textarea>
             </div>
             <div class="button-container">
-                <div class="mdui-float-left">
+                <div class="mdui-float-left" style="padding-left: 10px;">
                     <button class="mdui-btn mdui-btn-dense mdui-btn-raised mdui-ripple mdui-color-theme"
                         mdui-dialog="{target: '#dialog-docs-theme'}">
                         <i class="mdui-icon material-icons">color_lens</i>
@@ -86,7 +86,7 @@
                     </button>
                 </div>
 
-                <div class="mdui-float-right">
+                <div class="mdui-float-right" style="padding-right: 10px;">
                     <button id="msg-send" onclick="main($('footer textarea').val().trim())"
                         mdui-tooltip="{content: '发送'}"
                         class="mdui-btn mdui-btn-dense mdui-btn-raised mdui-ripple mdui-color-theme">
