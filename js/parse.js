@@ -29,12 +29,7 @@ function parse(data) {
 
         // 替换单个$符号为两个$$符号，但不替换已经是两个$$符号的情况
         text = text.replace(/(?<!\$)\$(?!\$)/g, '$$$$');
-
-        // 恢复代码块内容
-        text = text.replace(/```[\s\S]*?```|`[\s\S]*?`/g, match => {
-            return match.replace(/\$/g, '$$$$'); // 恢复代码块内的$符号
-        });
-
+        
         element.innerHTML = text;
     }
     MathJax.typesetPromise(markdownElements);
