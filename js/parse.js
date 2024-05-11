@@ -19,19 +19,6 @@ function parse(data) {
     `);
 
     const markdownElements = document.getElementsByClassName("markdown-content");
-    for (let element of markdownElements) {
-        let text = element.innerHTML;
-
-        // 匹配代码块内容并暂时替换为空字符串
-        text = text.replace(/```[\s\S]*?```|`[\s\S]*?`/g, match => {
-            return match.replace(/[^\n]/g, ''); // 用空格替换代码块内容
-        });
-
-        // 替换单个$符号为两个$$符号，但不替换已经是两个$$符号的情况
-        text = text.replace(/(?<!\$)\$(?!\$)/g, '$$$$');
-        
-        element.innerHTML = text;
-    }
     MathJax.typesetPromise(markdownElements);
 
     // 将复制代码按钮添加到每个代码块内部
