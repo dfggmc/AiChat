@@ -12,9 +12,8 @@
  
 ## 链接
  
-- <i class="mdui-icon material-icons">build</i> [开源主仓库地址](https://github.com/dfggmc/aichat){:target="\_blank" rel="noopener noreferrer"}
+- <i class="mdui-icon material-icons">build</i> [开源主仓库地址](https://github.com/dfggmc/aichat)
 - <i class="mdui-icon material-icons">copyright</i> [dfgg Studio](https://studio.dfggmc.top/)
-  {:target="\_blank" rel="noopener noreferrer"}
  
 ## 免责声明
  
