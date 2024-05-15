@@ -15,10 +15,7 @@ function main(input) {
      * @returns 
      */
     function filterHTML(html) {
-        // 定义正则表达式，用于匹配 HTML 标签
-        var regex = /(<([^>]+)>)/ig;
-        // 使用空字符串替换匹配到的 HTML 标签
-        return html.replace(regex, "");
+        return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
     if (!input) {
@@ -55,7 +52,7 @@ function main(input) {
             </div>
             <hr>
         <div>
-        <div class="mdui-card-content mdui-typo markdown-content">${input}</div>
+        <div class="mdui-card-content mdui-typo markdown-content">${input.replace(/\n/g, "<br>")}</div>
     </div>
     `)
 
@@ -66,18 +63,18 @@ function main(input) {
      * API JSON 列表
      */
     const apiUrl = {
-        "https://api.lolimi.cn/API/AI/gemini.php": {
+        "https://api.lolimi.cn/API/AI/gpt4.php": {
             "data": `msg=${encodeURIComponent(input)}`,
             "method": "GET",
-            "dataType": "JSON"
+            "dataType": "TEXT"
         },
         "https://api.lolimi.cn/API/AI/c.php": {
             "data": `[
-                        {
-                            "role": "user",
-                            "content": "${encodeURIComponent(input)}"
-                        }
-                    ]`,
+                {
+                    "role": "user",
+                    "content": "${encodeURIComponent(input)}"
+                }
+            ]`,
             "method": "POST",
             "dataType": "TEXT"
         },
@@ -94,14 +91,14 @@ function main(input) {
         // 判断是否为JSON，处理不同API输出格式
         if (dataType === 'JSON') {
             // 如果输出内容为空
-            if (response.data.output === '') {
-                throw new Error(`API请求异常:${response.data.output}`);
+            if (!response.data.output) {
+                throw new Error(`API请求异常:${response}`);
             }
             parse(response.data.output);
         } else {
             // 如果输出内容为空
-            if (response === '') {
-                throw new Error(`API请求异常:${response.data.output}`);
+            if (!response) {
+                throw new Error(`API请求异常:${response}`);
             }
             parse(response);
         }

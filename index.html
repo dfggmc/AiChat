@@ -19,7 +19,7 @@
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar">
 
     <!-- 顶部导航栏 -->
-    <div class="mdui-appbar mdui-appbar-fixed mdui-color-theme mdui-text-color-black-text">
+    <header class="mdui-appbar mdui-appbar-fixed mdui-color-theme mdui-text-color-black-text">
         <div class="mdui-toolbar">
             <!-- 切换侧边栏状态 -->
             <a id="toggleDrawer" class="mdui-btn mdui-btn-icon mdui-btn-raised mdui-ripple">
@@ -37,7 +37,7 @@
                 <i class="mdui-icon material-icons">refresh</i>
             </a>
         </div>
-    </div>
+    </header>
 
     <div class="mdui-drawer" id="chat-list">
         <ul class="mdui-list">
@@ -63,6 +63,8 @@
                         target="_blank" rel="noopener noreferrer">dfgg Studio</a>
                     <br>
                     AI回答不代表本站观点，请勿发表及发送违规违法言论！
+                    <br>
+                    因为技术原因暂时无法做到上下位联系
                 </h1>
             </div>
         </main>
@@ -74,8 +76,8 @@
                 </div>
             </div>
             <div class="mdui-textfield">
-                <textarea id="input" rows="4" class="mdui-textfield-input" placeholder="来说点什么吧...（回车换行 Shift + Enter = 发送）"
-                    maxlength="4000"></textarea>
+                <textarea id="input" rows="4" class="mdui-textfield-input"
+                    placeholder="来说点什么吧...（回车换行 Shift + Enter = 发送）" maxlength="4000"></textarea>
             </div>
             <div class="button-container">
                 <div class="mdui-float-left" style="padding-left: 10px;">
@@ -175,6 +177,7 @@
     <script src="/js/chatList.js"></script>
 
     <script>
+        // 初始化MDUI未初始化的组件
         mdui.mutation();
     </script>
 </body>

@@ -5,7 +5,6 @@
 // Shift + Enter 发送请求
 const textarea = document.querySelector('footer textarea');
 textarea.addEventListener('keydown', function (event) {
-    console.debug(event.key)
     // 检测按钮是否被禁用(是否正在发送请求)
     if ($('footer').find('#msg-send').prop('disabled') !== true) {
         if (event.shiftKey && event.key === 'Enter') {
