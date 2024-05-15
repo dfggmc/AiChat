@@ -179,6 +179,13 @@
     <script>
         // 初始化MDUI未初始化的组件
         mdui.mutation();
+
+        $.get("https://raw.githubusercontent.com/dfggmc/AiChat/main/README.md", function (data) {
+            const parsedMarkdown = marked.parse(data);
+            $("#output").append(`README.md: <br>${parsedMarkdown}`);
+        }).fail(function () {
+            console.log("Error: Cannot retrieve content.");
+        });
     </script>
 </body>
 
