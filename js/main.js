@@ -91,13 +91,15 @@ function main(input) {
      * @param {*} dataType 
      */
     function handleResponse(response, dataType) {
+        // 判断是否为JSON，处理不同API输出格式
         if (dataType === 'JSON') {
+            // 如果输出内容为空
             if (response.data.output === '') {
-                parse(response.data.output);
                 throw new Error(`API请求异常:${response.data.output}`);
             }
             parse(response.data.output);
         } else {
+            // 如果输出内容为空
             if (response === '') {
                 throw new Error(`API请求异常:${response.data.output}`);
             }
