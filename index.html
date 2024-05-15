@@ -54,19 +54,6 @@
 
     <div id="container">
         <main id="output" class="markdown-body">
-            <div>
-                <h1 class="mdui-text-center mdui-typo mdui-text-color-theme-accent">
-                    <i class="mdui-icon material-icons">build</i> <a href="https://github.com/dfggmc/aichat"
-                        target="_blank" rel="noopener noreferrer">开原主仓库地址</a>
-                    <br>
-                    <i class="mdui-icon material-icons">copyright</i> 2024 <a href="https://studio.dfggmc.top/"
-                        target="_blank" rel="noopener noreferrer">dfgg Studio</a>
-                    <br>
-                    AI回答不代表本站观点，请勿发表及发送违规违法言论！
-                    <br>
-                    因为技术原因暂时无法做到上下位联系
-                </h1>
-            </div>
         </main>
 
         <footer class="mdui-typo">
@@ -182,7 +169,7 @@
 
         $.get("https://raw.githubusercontent.com/dfggmc/AiChat/main/README.md", function (data) {
             const parsedMarkdown = marked.parse(data);
-            $("#output").append(`${parsedMarkdown}`);
+            $("#output").append(`README.md: <br>${parsedMarkdown}`);
         }).fail(function () {
             console.log("Error: Cannot retrieve content.");
         });
