@@ -93,24 +93,22 @@ function main(input) {
      * @param {*} dataType 
      */
     function handleResponse(response, dataType) {
-      let output;
-      
-      // 判断是否为JSON，处理不同API输出格式
-      if (dataType === 'JSON') {
-        // 如果输出内容为空
-        if (!response.data.output) {
-          throw new Error(`输出内容为空！`);
+        let output;
+        // 判断是否为JSON，处理不同API输出格式
+        if (dataType === 'JSON') {
+            // 如果输出内容为空
+            if (!response.data.output) {
+                throw new Error(`输出内容为空！`);
+            }
+            output = response.data.output;
+        } else {
+            // 如果输出内容为空
+            if (!response) {
+                throw new Error(`输出内容为空`);
+            }
+            output = response;
         }
-        output = response.data.output;
-      } else {
-        // 如果输出内容为空
-        if (!response) {
-          throw new Error(`输出内容为空`);
-        }
-        output = response;
-      }
-      
-      parse(output);
+        parse(output);
     }
 
     /**
