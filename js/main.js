@@ -67,7 +67,7 @@ function main(input) {
             "data": `msg=${encodeURIComponent(input)}`,
             "method": "GET",
             "dataType": "JSON"
-        }
+        },
         "https://api.lolimi.cn/API/AI/gpt4.php": {
             "data": `msg=${encodeURIComponent(input)}`,
             "method": "GET",
