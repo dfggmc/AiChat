@@ -63,6 +63,11 @@ function main(input) {
      * API JSON 列表
      */
     const apiUrl = {
+        "https://api.lolimi.cn/API/AI/gemini.php": {
+            "data": `msg=${encodeURIComponent(input)}`,
+            "method": "GET",
+            "dataType": "JSON"
+        }
         "https://api.lolimi.cn/API/AI/gpt4.php": {
             "data": `msg=${encodeURIComponent(input)}`,
             "method": "GET",
@@ -125,7 +130,7 @@ function main(input) {
                             <img class="mdui-card-header-avatar" src="https://www.leye.site/Public/images/error_logo.png"/>
                             <div class="mdui-card-header-title">ERROR</div>
                         </div>
-                        <div class="mdui-card-content mdui-color-red-a400" id="markdown-content">equest to ${url} failed:, ${error}</div>
+                        <div class="mdui-card-content mdui-color-red-a400" id="markdown-content">请求API ${url} 时出错, 错误原因: ${error}, 正在尝试请求其他API</div>
                     </div>
                     `);
                     makeRequest();
