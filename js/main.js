@@ -47,7 +47,7 @@ function main(input) {
     <div class="mdui-card user-msg msg">
         <div class="ai-msg-header mdui-typo">
             <div class="mdui-card-header">
-                <img class="mdui-card-header-avatar" src="/img/user-avatar.jpg"/>
+                <img class="mdui-card-header-avatar" src="https://image.dfggmc.top/imgs/2024/06/18d6d07a10d1220c.jpg"/>
                 <div class="mdui-card-header-title">You</div>
             </div>
             <hr>
@@ -130,7 +130,7 @@ function main(input) {
                     $("#output").append(`
                     <div class="mdui-card sys-msg msg">
                         <div class="mdui-card-header mdui-color-red-a200">
-                            <img class="mdui-card-header-avatar" src="https://www.leye.site/Public/images/error_logo.png"/>
+                            <img class="mdui-card-header-avatar" src="https://image.dfggmc.top/imgs/2024/06/46daca418fde6f47.png"/>
                             <div class="mdui-card-header-title">ERROR</div>
                         </div>
                         <div class="mdui-card-content mdui-color-red-a400" id="markdown-content">请求API ${url} 时出错, 错误原因: ${error}, 正在尝试请求其他API</div>
