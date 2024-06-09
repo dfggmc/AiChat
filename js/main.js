@@ -43,18 +43,7 @@ function main(input) {
 
     progressContainer.show();
     msgSendBtn.prop('disabled', true);
-    $("#output").append(`
-    <div class="mdui-card user-msg msg">
-        <div class="ai-msg-header mdui-typo">
-            <div class="mdui-card-header">
-                <img class="mdui-card-header-avatar" src="https://image.dfggmc.top/imgs/2024/06/18d6d07a10d1220c.jpg"/>
-                <div class="mdui-card-header-title">You</div>
-            </div>
-            <hr>
-        <div>
-        <div class="mdui-card-content mdui-typo markdown-content">${input.replace(/\n/g, "<br>")}</div>
-    </div>
-    `)
+    parse(input, "user");
 
     // 滚动到最底下
     window.scrollTo(0, document.body.scrollHeight);

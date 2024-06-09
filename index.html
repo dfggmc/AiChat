@@ -145,7 +145,6 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/marked/9.0.0/marked.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/js-cookie/3.0.5/js.cookie.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
     <script src="https://gcore.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
@@ -161,15 +160,23 @@
     <script src="/js/parse.js?v=0.0.2"></script>
     <script src="/js/colorPalette.js"></script>
     <script src="/js/main.js?v=0.2.2"></script>
-    <script src="/js/chatList.js"></script>
+    <script src="/js/chatData.js?v=1.0.0"></script>
 
     <script>
         // 初始化MDUI未初始化的组件
         mdui.mutation();
 
+        let inst = new mdui.Drawer('#chat-list', {
+            swipe: true
+        });
+
+        $('.mdui-toolbar #toggleDrawer').on('click', function () {
+            inst.toggle();
+        });
+        
         $.get("https://raw.githubusercontent.com/dfggmc/AiChat/main/README.md", function (data) {
             const parsedMarkdown = marked.parse(data);
-            $("#output").append(`${parsedMarkdown}`);
+            $("#output").html(`${parsedMarkdown}`);
         }).fail(function () {
             console.log("Error: Cannot retrieve content.");
         });
