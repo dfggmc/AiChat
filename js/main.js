@@ -43,7 +43,7 @@ function main(input) {
 
     progressContainer.show();
     msgSendBtn.prop('disabled', true);
-    parse(input, "user");
+    parse(input, true, "user");
 
     // 滚动到最底下
     window.scrollTo(0, document.body.scrollHeight);

@@ -1,9 +1,14 @@
 /**
  * 解析并输出
  * @param {*} data 
+ * @param {blob} writeHistory 是否写入聊天记录
  * @param {*} type 消息类型 ai\user
  */
-function parse(data, type = null) {
+function parse(data, writeHistory = true, type = null) {
+    // 获取URL中的哈希部分
+    let hash = window.location.hash;
+    // 通过字符串处理方法提取所需部分
+    const uuid = hash.split('/').pop();
     if (type === "user") {
         $("#output").append(`
         <div class="mdui-card user-msg msg">
@@ -19,8 +24,13 @@ function parse(data, type = null) {
         `);
         // 滚动到最底下
         window.scrollTo(0, document.body.scrollHeight);
-        return
+        // 写入聊天记录
+        if (writeHistory) {
+            manageChatContent(uuid, 'add', `[type: 'user',txt: '${data}']`)
+        }
+        return null
     }
+
     // 渲染 Markdown 内容
     $("#output").append(`
         <div class="mdui-card ai-msg msg">
@@ -70,4 +80,8 @@ function parse(data, type = null) {
 
     // 滚动到最底下
     window.scrollTo(0, document.body.scrollHeight);
+    // 添加聊天记录
+    if (writeHistory) {
+        manageChatContent(uuid, 'add', `[type: 'ai',txt: '${data}']`)
+    }
 }
