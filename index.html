@@ -174,7 +174,7 @@
             inst.toggle();
         });
         
-        $.get("https://raw.githubusercontent.com/dfggmc/AiChat/main/README.md", function (data) {
+        $.get("/README.md", function (data) {
             const parsedMarkdown = marked.parse(data);
             $("#output").html(`${parsedMarkdown}`);
         }).fail(function () {

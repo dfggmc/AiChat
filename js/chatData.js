@@ -142,7 +142,7 @@ function manageChatContent(uuid, method, contentToAdd = null) {
             // 验证内容格式是否正确
             const contentRegex = /\[type:\s*'([^']*)',\s*txt:\s*'([^']*)'\]/;
             if (!contentRegex.test(contentToAdd)) {
-                reject("添加的内容格式不正确");
+                reject(`添加的内容格式不正确\n ${contentToAdd} \n`);
                 return;
             }
             // 开启一个事务来获取列表记录
