@@ -45,9 +45,7 @@
                 <i class="mdui-list-item-icon mdui-icon material-icons">playlist_add</i>
                 <div class="mdui-list-item-content">NEW Chat</div>
             </li>
-
             <li class="mdui-divider"></li>
-
             <div class="list"></div>
         </ul>
     </div>
@@ -173,7 +171,7 @@
         $('.mdui-toolbar #toggleDrawer').on('click', function () {
             inst.toggle();
         });
-        
+
         $.get("/README.md", function (data) {
             const parsedMarkdown = marked.parse(data);
             $("#output").html(`${parsedMarkdown}`);
