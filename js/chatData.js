@@ -281,7 +281,7 @@ function updateChatList() {
                         // 遍历聊天记录，并将其输出到页面上
                         data.forEach((record, index) => {
                             // 构建消息元素并添加到页面中
-                            parse(record.text, false, record.type)
+                            parse(decodeURIComponent(escape(window.atob(record.text))), false, record.type)
                         });
                     } else {
                         $('#output').append(`                    
