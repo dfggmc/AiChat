@@ -1,4 +1,13 @@
 /**
+ * 过滤HTML，防止XSS攻击，仅用于在页面上显示内容
+ * @param {string} html - 需要过滤的HTML字符串
+ * @returns {string} 过滤后的安全HTML字符串
+ */
+function filterHTML(html) {
+    return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/**
  * 主函数（入口函数）
  * @param {string} input - 用户输入的内容
  */
@@ -14,15 +23,6 @@ function main(input) {
      */
     function resetInput() {
         $('#input').val("");
-    }
-
-    /**
-     * 过滤HTML，防止XSS攻击，仅用于在页面上显示内容
-     * @param {string} html - 需要过滤的HTML字符串
-     * @returns {string} 过滤后的安全HTML字符串
-     */
-    function filterHTML(html) {
-        return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
     /**
@@ -67,9 +67,6 @@ function main(input) {
      * @param {number} index - 当前请求的索引
      */
     function makeRequest(apiUrls, index = 0) {
-        // 如果所有请求都已尝试完毕，退出递归
-        if (index >= apiUrls.length) return;
-
         // 取出当前索引对应的API请求配置
         const { url, data, method, dataType } = apiUrls[index];
 
@@ -89,39 +86,70 @@ function main(input) {
                             <img class="mdui-card-header-avatar" src="https://image.dfggmc.top/imgs/2024/06/46daca418fde6f47.png"/>
                             <div class="mdui-card-header-title">ERROR</div>
                         </div>
-                        <div class="mdui-card-content mdui-color-red-a400" id="markdown-content">请求API ${url} 时出错, 错误原因: ${error}, 正在尝试请求其他API</div>
+                        <div class="mdui-card-content mdui-color-red-a400" id="markdown-content">出错了！错误原因: ${error}</div>
                     </div>
                 `);
-                // 递归调用下一个API请求
-                makeRequest(apiUrls, index + 1);
+                msgSendBtn.prop('disabled', false);
+                progressContainer.hide();
             });
     }
 
     /**
-     * 初始化API请求
+     * 初始化API请求，带上下文
      * @param {string} input - 用户输入的内容
      */
     function initiateRequest(input) {
-        // 配置API请求列表（这里只配置了一个API）
-        const apiUrls = [
-            {
-                url: "https://apii.lolimi.cn/api/c4o/c?key=F0Q5A7MMukiINTuVuSxDGYnlC7",
-                data: JSON.stringify([{ "role": "user", "content": encodeURIComponent(input) }]),
-                method: "POST",
-                dataType: "TEXT"
-            }
-        ];
+        const hash = window.location.hash;
+        const uuid = hash.startsWith("#/chat/") ? hash.replace("#/chat/", "") : null;
 
-        // 显示进度条并禁用发送按钮
-        progressContainer.show();
-        msgSendBtn.prop('disabled', true);
-        // 将用户输入内容解析显示在页面上，过滤HTML
-        parse(filterHTML(input), true, "user");
-        // 滚动页面到最底部
-        window.scrollTo(0, document.body.scrollHeight);
+        if (!uuid) {
+            console.error("UUID无效，无法加载上下文");
+            return;
+        }
 
-        // 开始请求API
-        makeRequest(apiUrls);
+        // 查询聊天记录以构建上下文
+        manageChatContent(uuid, 'query').then(history => {
+            // 构建 messages 数组
+            const messages = history.map(msg => ({
+                role: msg.type === 'user' ? 'user' : 'assistant',
+                content: msg.text // 注意：这里是 text 不是 txt
+            }));
+
+            // 添加当前用户输入
+            messages.push({
+                role: "user",
+                content: input
+            });
+
+            const apiUrls = [
+                {
+                    url: "https://api.pearktrue.cn/api/aichat/",
+                    data: JSON.stringify({
+                        model: "deepseek-v3",
+                        messages: messages,
+                        stream: false
+                    }),
+                    method: "POST",
+                    dataType: "json"
+                }
+            ];
+
+            // 显示进度条并禁用发送按钮
+            progressContainer.show();
+            msgSendBtn.prop('disabled', true);
+            // 显示用户输入
+            parse(filterHTML(input), true, "user");
+            window.scrollTo(0, document.body.scrollHeight);
+
+            // 发起请求
+            makeRequest(apiUrls);
+
+            // 添加当前消息到数据库（可选）
+            const recordStr = `[type:'user', txt:'${input}']`;
+            manageChatContent(uuid, 'add', recordStr).catch(console.error);
+        }).catch(error => {
+            console.error("获取上下文失败：", error);
+        });
     }
 
     // 首先重置输入框内容

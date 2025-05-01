@@ -1,4 +1,18 @@
 let db;
+/**
+ * 解码 Base64 并支持 UTF-8
+ */
+function decodeBase64UTF8(base64Str) {
+    // 1. 解码 Base64 得到二进制字符串
+    const binaryStr = window.atob(base64Str);
+    // 2. 将二进制字符串转换为字节数组
+    const bytes = new Uint8Array(binaryStr.length);
+    for (let i = 0; i < binaryStr.length; i++) {
+        bytes[i] = binaryStr.charCodeAt(i);
+    }
+    // 3. 使用 TextDecoder 解码 UTF-8
+    return new TextDecoder('utf-8').decode(bytes);
+}
 // 打开或创建数据库
 function openDatabase() {
     let request = window.indexedDB.open("chatData", 1);
@@ -280,8 +294,9 @@ function updateChatList() {
                     if (data && data.length > 0) {
                         // 遍历聊天记录，并将其输出到页面上
                         data.forEach((record, index) => {
-                            // 构建消息元素并添加到页面中
-                            parse(decodeURIComponent(escape(window.atob(record.text))), false, record.type)
+                            // 解码 Base64 并正确处理 UTF-8
+                            const decodedText = decodeBase64UTF8(record.text);
+                            parse(decodedText, false, record.type);
                         });
                     } else {
                         $('#output').append(`                    

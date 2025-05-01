@@ -15,7 +15,7 @@ function sendRequest(url, method, dataType, data = null) {
             dataType: dataType,
             success: function (data) {
                     if (dataType === 'json') {
-                        resolve(data);
+                        resolve(data.content);
                     } else {
                         resolve(data);  // 对于文本格式数据直接resolve
                     }

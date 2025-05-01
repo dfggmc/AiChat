@@ -9,16 +9,18 @@ body {
 /* 毛玻璃效果 */
 header,
 footer,
-.mdui-overlay-show
- {
+.mdui-overlay-show {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(2.5px);
-    border-radius: 25px;
     box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.2);
 }
 
 #output {
     min-height: 79vh;
+}
+
+#input {
+    margin: 10px;
 }
 
 .mdui-icon {
@@ -109,7 +111,7 @@ footer,
     }
 }
 
-#chat-list .list .delete{
+#chat-list .list .delete {
     position: absolute;
     top: 0px;
     right: 0px;
